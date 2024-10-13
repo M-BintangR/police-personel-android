@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">siantik</string>
+    <string name="todo" />
+    <string name="ooo" />
+
+    <string-array name="keterangan_options">
+        <item>Masukan Keterangan</item>
+        <item>Sakit</item>
+        <item>Izin</item>
+        <item>Tanpa Keterangan</item>
+    </string-array>
+</resources>

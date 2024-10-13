@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    tools:context=".LaporanBulananActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:navigationIcon="@drawable/ic_back">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@android:color/holo_red_light"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="20dp"
+                            android:src="@drawable/ic_info" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:text="Laporan Bulanan"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="10dp">
+
+                        <!-- Bagian Filter -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <!-- Combobox Filter Tanggal -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Filter Bulan"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <EditText
+                                    android:id="@+id/editText_filter_tanggal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:backgroundTint="@android:color/holo_red_light"
+                                    android:focusable="false"
+                                    android:clickable="true"
+                                    android:focusableInTouchMode="false"
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp"
+                                    android:hint="Pilih Tanggal" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="16dp"
+                                android:layout_height="wrap_content" />
+
+                            <!-- Combobox Filter Keterangan -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Filter Keterangan"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <Spinner
+                                    android:id="@+id/spinner_filter_keterangan"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:backgroundTint="@android:color/holo_red_light"
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="16dp"
+                                android:layout_height="wrap_content" />
+
+                            <!-- Tombol Cetak -->
+                            <Button
+                                android:id="@+id/button_cetak"
+                                android:layout_width="wrap_content"
+                                android:layout_height="50dp"
+                                android:text="Cetak"
+                                android:textColor="@android:color/white"
+                                android:backgroundTint="@android:color/holo_red_dark"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <!-- Tabel Laporan Bulanan dalam ScrollView -->
+                        <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TableLayout
+                                android:id="@+id/table_laporan_bulanan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:stretchColumns="*"
+                                android:layout_marginTop="20dp">
+
+                                <!-- Header Tabel Baris 1 -->
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@android:color/holo_red_light"
+                                    android:divider="@android:color/white"
+                                    android:dividerHeight="1dp">
+
+                                    <TextView
+                                        android:text="No."
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:textColor="@android:color/white"
+                                        android:textStyle="bold"
+                                        android:gravity="center" />
+
+                                    <TextView
+                                        android:text="Nama Personil"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:textColor="@android:color/white"
+                                        android:textStyle="bold"
+                                        android:gravity="center" />
+
+                                    <TextView
+                                        android:text="NRP/NIP"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:textColor="@android:color/white"
+                                        android:textStyle="bold"
+                                        android:gravity="center" />
+
+                                    <!-- Kolom "Keterangan" -->
+                                    <TextView
+                                        android:text="Keterangan"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:textColor="@android:color/white"
+                                        android:textStyle="bold"
+                                        android:gravity="center" />
+
+                                    <TextView
+                                        android:text="Bukti"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:textColor="@android:color/white"
+                                        android:textStyle="bold"
+                                        android:gravity="center" />
+
+                                    <TextView
+                                        android:text="Lokasi"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:textColor="@android:color/white"
+                                        android:textStyle="bold"
+                                        android:gravity="center" />
+
+                                </TableRow>
+
+                                <!-- Header Tabel Baris 2 -->
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:divider="@android:color/holo_red_light"
+                                    android:dividerHeight="1dp">
+
+                                    <TextView
+                                        android:text=""
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:gravity="center" />
+
+                                    <TextView
+                                        android:text=""
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:gravity="center" />
+
+                                    <TextView
+                                        android:text=""
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:gravity="center" />
+
+                                    <!-- Kolom Keterangan -->
+                                    <TextView
+                                        android:text="H"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:textColor="@android:color/white"
+                                        android:gravity="center" />
+
+                                    <TextView
+                                        android:text="S"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:textColor="@android:color/white"
+                                        android:gravity="center" />
+
+                                    <TextView
+                                        android:text="I"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:textColor="@android:color/white"
+                                        android:gravity="center" />
+
+                                    <TextView
+                                        android:text="C"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:textColor="@android:color/white"
+                                        android:gravity="center" />
+
+                                    <TextView
+                                        android:text="T"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:textColor="@android:color/white"
+                                        android:gravity="center" />
+
+                                    <TextView
+                                        android:text="P"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:textColor="@android:color/white"
+                                        android:gravity="center" />
+
+                                </TableRow>
+
+                            </TableLayout>
+
+                        </ScrollView>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
